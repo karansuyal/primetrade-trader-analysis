@@ -18,7 +18,7 @@ print("="*60)
 # LOAD DATA
 # ============================================
 
-print("\n📂 Loading data...")
+print("\n Loading data...")
 
 sentiment_df = pd.read_csv('fear_greed_index.csv')
 trader_df = pd.read_csv('historical_data.csv')
@@ -156,7 +156,7 @@ print(f"  Greed Days: {greed_trades:.0f} trades/day")
 # VISUALIZATION
 # ============================================
 
-print("\n📊 Creating charts...")
+print("\n Creating charts...")
 
 fig, axes = plt.subplots(2, 2, figsize=(14, 10))
 fig.suptitle('Trader Performance: Fear vs Greed Days', fontsize=14)
@@ -192,7 +192,7 @@ plt.show()
 
 insights = f"""
 ================================================================================
-📝 INSIGHTS SUMMARY
+ INSIGHTS SUMMARY
 ================================================================================
 
 KEY FINDINGS:

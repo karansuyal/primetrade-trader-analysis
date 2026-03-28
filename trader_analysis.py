@@ -11,7 +11,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 print("="*60)
-print("📊 TRADER PERFORMANCE ANALYSIS")
+print("TRADER PERFORMANCE ANALYSIS")
 print("="*60)
 
 # ============================================
@@ -37,13 +37,13 @@ trader_df.rename(columns={
     'Size USD': 'size_usd'
 }, inplace=True)
 
-print("\n✅ Columns renamed")
+print("\n Columns renamed")
 
 # ============================================
 # CONVERT DATES - FIXED
 # ============================================
 
-print("\n📅 Converting dates...")
+print("\n Converting dates...")
 
 # Sentiment data
 sentiment_df['Date'] = pd.to_datetime(sentiment_df['date'])
@@ -94,7 +94,7 @@ daily_data = pd.merge(daily_data, ls_ratio[['Date', 'long_short_ratio']], on='Da
 # Avg PnL per trade
 daily_data['avg_pnl_per_trade'] = daily_data['total_pnl'] / daily_data['trade_count']
 
-print("✅ Daily metrics created!")
+print(" Daily metrics created!")
 
 # ============================================
 # MERGE WITH SENTIMENT
@@ -121,7 +121,7 @@ print(f"Merged data: {merged_df.shape[0]} days")
 # ============================================
 
 print("\n" + "="*60)
-print("📊 ANALYSIS: FEAR vs GREED")
+print(" ANALYSIS: FEAR vs GREED")
 print("="*60)
 
 fear_data = merged_df[merged_df['Sentiment'] == 'Fear']
@@ -131,7 +131,7 @@ print(f"\nFear days: {len(fear_data)}")
 print(f"Greed days: {len(greed_data)}")
 
 print("\n" + "-"*50)
-print("💰 PERFORMANCE COMPARISON")
+print(" PERFORMANCE COMPARISON")
 print("-"*50)
 
 fear_pnl = fear_data['total_pnl'].mean()
@@ -183,7 +183,7 @@ axes[1,1].set_ylabel('PnL per Trade')
 
 plt.tight_layout()
 plt.savefig('analysis_charts.png', dpi=150)
-print("✅ Chart saved: analysis_charts.png")
+print("Chart saved: analysis_charts.png")
 plt.show()
 
 # ============================================
@@ -213,7 +213,7 @@ KEY FINDINGS:
    • {(greed_trades/fear_trades - 1)*100:.0f}% more active during Greed
 
 ================================================================================
-💡 STRATEGY RECOMMENDATIONS
+ STRATEGY RECOMMENDATIONS
 ================================================================================
 
 1. Sentiment-Based Position Sizing:
@@ -236,7 +236,7 @@ print(insights)
 with open('insights_summary.txt', 'w') as f:
     f.write(insights)
 
-print("\n✅ Analysis complete!")
+print("\nAnalysis complete!")
 print("\nFiles generated:")
 print("  - analysis_charts.png")
 print("  - insights_summary.txt")
